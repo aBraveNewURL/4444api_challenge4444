@@ -5,12 +5,35 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Benjamin Sokolik">
     <meta name="description" content="Course Challenge 1" /> 
-    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="./styles.css">
     <link rel="shortcut icon" type="image/png" href="./assets/initialsFavicon.png">
-    <title>Challenge 4</title>
+    <title>Challenge 4: Build a Test</title>
 </head>
+
+<header class="h1"><h1>Knowledge Check</h1></header>
+
 <body>
+    <div id="button">
+    <button id="startBtn">Click to Begin Test</button> 
+    </div> 
+
+    <div id="testContent">
+        <div id="choices"></div>
+        <div id="testQuestion"><h3>**QUESTIONS HERE**</h3></div>
+        <div id="answerChoices">
+            <button class="answer" id="A" onclick="checkAnswer('A')">A</button>
+            <button class="answer" id="B" onclick="checkAnswer('B')">B</button>
+            <button class="answer" id="C" onclick="checkAnswer('C')">C</button>
+        </div>
+        <div id="testTimer"></div>
+            <div id="counter"></div>
+        <div id="progress"></div>
+    </div>
+
+<div id="userScore" style="display: none;">
+
+</div>
+    <script src="./main.js"></script>
 </body>
-<script src="./main.js"></script>
+
 </html>
