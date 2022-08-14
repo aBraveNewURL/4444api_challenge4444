@@ -10,18 +10,16 @@
 // Score is presented at the end of the game
 //  Initials can be entered to accompany new score
 
-
 let currentQuestion= 0;
-
-
-
 const start= document.getElementById("startBtn");
 start.addEventListener("click", beginTest);
 // TIMER function goes here ***
 function beginTest(){
     start.style.display = "none";
+    testContent.style.display = "block";
+    // document.getElementById()
     renderQuestion();
-    test.style.display= "block";
+    
 }
 
 const test= document.getElementById("testContent");
@@ -29,10 +27,8 @@ const question= document.getElementById("testQuestion");
 const choiceA= document.getElementById("A");
 const choiceB= document.getElementById("B");
 const choiceC= document.getElementById("C");
-const score= document.getElementById("userScore");
-const lastQuestion = question.length -1;
-
-
+var score= document.getElementById("userScore");
+score = 0;
 
 function renderQuestion(){
     let q = questions[currentQuestion];
@@ -45,28 +41,32 @@ function renderQuestion(){
 }
 
 function checkAnswer(answer){
-    if(questions[currentQuestion].correct === answer){
-        score++;
+    console.log(answer)
+    console.log(questions[currentQuestion].correctChoice === answer)
+    if(questions[currentQuestion].correctChoice === answer){
+        score++; 
+        currentQuestion++;
+        // console.log(score);
+        // console.log(currentQuestion);
+        // console.log(lasQuestion);
   }
   else {
-    wrongAnswer();
-  }
-  if(currentQuestion < lastQuestion){
-    count = 0;
     currentQuestion++;
-    questionRender();
+  }
+
+  if(currentQuestion <= lastQuestion){
+    renderQuestion();
   }
   else {
-    scoreRender(); //show score to user
+    scoreRender(); 
   }
 }
 
-
-
 function scoreRender(){
-    scoreContainer.style.display = "block";
+    userScore.style.display = "block";
+    testContent.style.display = "none";
     let scorePercent = Math.round(100 * score /questions.length);
-    scoreContainer.innerHTML = "You scored " + scorePercent + "%."
+    userScore.innerHTML = "You scored: " + scorePercent + "%"
 }
 
 let questions = [
@@ -113,12 +113,9 @@ let questions = [
 
 ];
 
-let lasQuestion = questions.length - 1;
+let lastQuestion = questions.length - 1;
 
 currentQuestion = 0;
-renderQuestion()
-
-currentQuestion++
 renderQuestion()
 
 
