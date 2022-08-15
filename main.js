@@ -15,16 +15,15 @@ let currentQuestion = 0;
 const start = document.getElementById("startBtn");
 start.addEventListener("click", beginTest);
 start.addEventListener("click", setTime);
+var form = document.getElementById("form");
+
 
 function setTime() {
+    
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft + " seconds remaining.";
-
         if (secondsLeft <= 0) {
-            // clearInterval(timerInterval);
-
-            highScore();
         }
     }, 1000);
 }
@@ -32,7 +31,9 @@ function setTime() {
 function beginTest() {
 
     start.style.display = "none";
+
     testContent.style.display = "block";
+
     renderQuestion();
 
     function setTime() {
@@ -43,7 +44,7 @@ function beginTest() {
             if (secondsLeft === 0) {
                 clearInterval(timerInterval);
                 
-                highScore();
+                
             }
         }, 1000);
     }
@@ -57,6 +58,7 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 score = 0;
+var initials = document.getElementById("initials")
 
 function renderQuestion() {
     let q = questions[currentQuestion];
@@ -87,9 +89,7 @@ function checkAnswer(answer) {
         renderQuestion();
     }
     else {
-        scoreRender();
-        highScore();
-        
+        scoreRender();      
     }
 }
 
@@ -99,7 +99,8 @@ function scoreRender() {
     timer.style.display = "none";
     let scorePercent = Math.round(100 * score / questions.length);
     userScore.innerHTML = "You scored: " + scorePercent + "%"
-}
+    localStorage.setItem("Score",scorePercent)
+};
 
 let questions = [
 
@@ -145,7 +146,6 @@ let questions = [
 
 ];
 
-
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
@@ -155,13 +155,17 @@ function setTime() {
             clearInterval(timerInterval);
             timer.style.display = "none";
             scoreRender();
-            highScore();
             form.style.display= "block";
         }
     }, 1000);
-}
+};
 
+// function storeIt (event) {
+//     event.preventDefault();
+//     localStorage.setItem("Initials",initials)
+// };
 
+// storeIt();
 
 
 let lastQuestion = questions.length - 1;
