@@ -1,16 +1,3 @@
-// Must have start button initiate the test
-//  Timer must begin when start button is pressed
-
-// A series of questions are asked
-//  Incorrect answers reduce time remaining
-//  Answers are stored and scored for later
-
-// Test ends when all questions are answered OR time runs out
-
-// Score is presented at the end of the game
-//  Initials can be entered to accompany new score
-
-
 let currentQuestion = 0;
 const start = document.getElementById("startBtn");
 start.addEventListener("click", beginTest);
@@ -58,7 +45,7 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 score = 0;
-var initials = document.getElementById("initials")
+
 
 function renderQuestion() {
     let q = questions[currentQuestion];
@@ -162,14 +149,13 @@ function setTime() {
 
 function storeIt (event) {
     // event.preventDefault();
+    var initials = document.getElementById("initials").value;
     localStorage.setItem("Initials",initials)
 };
 
-storeIt();
-
 var userName = document.getElementById("initials");
 form.addEventListener("click", storeIt);
-
+ 
 
 let lastQuestion = questions.length - 1;
 
