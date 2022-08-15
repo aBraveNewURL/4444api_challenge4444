@@ -15,8 +15,8 @@ let currentQuestion = 0;
 const start = document.getElementById("startBtn");
 start.addEventListener("click", beginTest);
 start.addEventListener("click", setTime);
-var form = document.getElementById("form");
 
+var form = document.getElementById("form");
 
 function setTime() {
     
@@ -160,12 +160,15 @@ function setTime() {
     }, 1000);
 };
 
-// function storeIt (event) {
-//     event.preventDefault();
-//     localStorage.setItem("Initials",initials)
-// };
+function storeIt (event) {
+    // event.preventDefault();
+    localStorage.setItem("Initials",initials)
+};
 
-// storeIt();
+storeIt();
+
+var userName = document.getElementById("initials");
+form.addEventListener("click", storeIt);
 
 
 let lastQuestion = questions.length - 1;
