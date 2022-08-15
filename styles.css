@@ -10,8 +10,6 @@
     background-color: #005C53;
 }
 
-
-
 #testContent {
     margin:0px;
     padding:20px;
@@ -21,7 +19,6 @@
     text-shadow: 2px 2px rgba(85, 79, 79, 0.411);
     background-color: #005C53;
 }
-
 
 .answer {
     border: 2px solid black;
@@ -64,6 +61,15 @@ p {
     font-weight: light;
 
 };
+
+h2 {
+    font-weight: bolder;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 10vh; 
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+}
 
 /* 
 #userScore.div {
